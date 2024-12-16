@@ -3,6 +3,8 @@ package booungyiTest;
 import java.time.LocalDate;
 
 public class PCCPEx1playercut {
+    private final String PREV = "prev";
+    private final String NEXT = "next";
     public String solution(String video_len,String pos , String op_end, String[]commands , String op_start) {
         String answer = "";
         int videoint = Integer.parseInt(video_len.replace(":", "")); //영화의 총 시간
@@ -13,7 +15,7 @@ public class PCCPEx1playercut {
         if (commands[i].equals("next")) {
             if ((videoint - 10) > posint) {
                 if (op_endint - 10 > posint) {
-                    answer += answer.String.valueOf(videoint - posint);
+                    answer += answer.valueOf(videoint - posint);
                 } else {
                     answer = op_end;
                 }
@@ -22,6 +24,7 @@ public class PCCPEx1playercut {
             }
         } else if (commands[i].equals("prev")) {
             if (posint <= 10) {
+
                 answer = "00:00";
             } else {
                 answer = String.valueOf(posint-10);
@@ -29,6 +32,7 @@ public class PCCPEx1playercut {
 
             }
         }
+//        만약 2 12:30 - 40 이면 1190이 뜸 그래서 if (substring(:)12:"30" <(40)) 12:30 -40 -40
         //op_Start  <= 현재위치 <= op end 인 경우 자동으로 오프닝이 끝나는 위치로 이동합니다.
         //video_len  동영상의 길이를 나타내는 문자열
         //기능이 수행되기 직전의 재생위치를 나타내는 문자열 pos
